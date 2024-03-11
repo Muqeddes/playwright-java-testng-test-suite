@@ -5,6 +5,8 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import swaglabs.utilities.AppConstants;
 
+import java.nio.file.Paths;
+
 public class CheckoutPage {
     private Page page;
     Faker faker=new Faker();
@@ -27,6 +29,7 @@ public class CheckoutPage {
         page.getByRole(AriaRole.BUTTON,
                         new Page.GetByRoleOptions().setName("finish"))
                 .click();
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot.png")));
 
     }
 
