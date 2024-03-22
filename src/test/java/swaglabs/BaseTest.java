@@ -21,19 +21,18 @@ public class BaseTest {
     protected CheckoutPage checkoutPage;
 
     @BeforeTest
-    public void setup(){
-        pwFactory=new PlaywrightFactory();
-        properties=pwFactory.initProperties();
-        page=pwFactory.initBrowser(properties);
-        loginPage=new LoginPage(page);
-        homePage=new HomePage(page);
-        shoppingCartPage=new ShoppingCartPage(page);
-        checkoutPage=new CheckoutPage(page);
-
-
+    public void setup() {
+        pwFactory = new PlaywrightFactory();
+        properties = pwFactory.initProperties();
+        page = pwFactory.initBrowser(properties);
+        loginPage = new LoginPage(page);
+        homePage = new HomePage(page);
+        shoppingCartPage = new ShoppingCartPage(page);
+        checkoutPage = new CheckoutPage(page);
     }
+
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         page.context().browser().close();
         pwFactory.closePlaywright();
     }

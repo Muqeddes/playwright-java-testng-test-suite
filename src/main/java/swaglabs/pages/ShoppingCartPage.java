@@ -10,9 +10,9 @@ public class ShoppingCartPage {
         this.page = page;
     }
 
-    public void clickOnCheckout(){
+    public void clickOnCheckout() {
         page.getByRole(AriaRole.BUTTON,
-                new Page.GetByRoleOptions().setName("checkout"))
+                        new Page.GetByRoleOptions().setName("checkout"))
                 .click();
     }
 }

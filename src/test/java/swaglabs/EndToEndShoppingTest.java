@@ -7,19 +7,19 @@ import swaglabs.utilities.AppConstants;
 
 public class EndToEndShoppingTest extends BaseTest {
     @Test
-    public void loginTest(){
-        loginPage.login(properties.getProperty("username"),properties.getProperty("password"));
+    public void loginTest() {
+        loginPage.login(properties.getProperty("username"), properties.getProperty("password"));
         Assert.assertEquals(homePage.getPageHeader(), AppConstants.HOME_PAGE_HEADER);
     }
 
-    @Test (dependsOnMethods = "loginTest", dataProvider = "getProductData")
-    public void addToCartTest(String productName){
+    @Test(dependsOnMethods = "loginTest", dataProvider = "getProductData")
+    public void addToCartTest(String productName) {
         homePage.addProduct(productName);
-        Assert.assertTrue(homePage.addedItemNumber()>0);
+        Assert.assertTrue(homePage.addedItemNumber() > 0);
     }
 
-    @Test (dependsOnMethods = "addToCartTest")
-    public void checkoutTest(){
+    @Test(dependsOnMethods = "addToCartTest")
+    public void checkoutTest() {
         homePage.clickOnShoppingCart();
         shoppingCartPage.clickOnCheckout();
         checkoutPage.fillShippingInfo();
@@ -27,16 +27,11 @@ public class EndToEndShoppingTest extends BaseTest {
     }
 
 
-
-
-
-
     @DataProvider
-    public Object[][] getProductData(){
+    public Object[][] getProductData() {
         return new Object[][]{
                 {"Backpack"},
                 {"Jacket"}
-
         };
     }
 
